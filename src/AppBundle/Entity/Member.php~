@@ -1,0 +1,81 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity()
+ * @ORM\Table(
+ *     name="member_2016",
+ *     uniqueConstraints={@ORM\UniqueConstraint(name="user_unique",columns={"username"})},
+ *     indexes={@ORM\Index(name="user_idx", columns={"username"})})
+ * )
+ * @see http://doctrine-orm.readthedocs.io/projects/doctrine-orm/en/latest/reference/annotations-reference.html
+ */
+class Member extends User
+{
+    public function __construct()
+    {
+        $this->profile = new Profile();
+    }
+
+    public function __toString()
+    {
+        return $this->getUsername();
+    }
+
+    /**
+     * @ORM\Column(name="id", type="guid")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="UUID")
+     */
+    private $id;
+
+    /**
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Profile", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $profile;
+
+    /**
+     * @ORM\Column(name="avatar", type="string", nullable=true)
+     */
+    private $avatar;
+    
+    //////////////////////////////// ORM GENERATED METHODS ///////////////////////////////////////
+
+    /**
+     * Get id
+     *
+     * @return guid
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+    
+    /**
+     * Set avatar
+     *
+     * @param string $avatar
+     *
+     * @return Member
+     */
+    public function setAvatar($avatar)
+    {
+        $this->avatar = $avatar;
+
+        return $this;
+    }
+
+    /**
+     * Get avatar
+     *
+     * @return string
+     */
+    public function getAvatar()
+    {
+        return $this->avatar;
+    }
+}

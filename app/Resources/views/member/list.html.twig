@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="row">
+    <div class="col-sm-12">
+        <h1>Utilisateurs</h1>
+        <table class="table table-striped">
+            <tr>
+                <th>username</th>
+                <th></th>
+                <th></th>
+            </tr>
+            {% for member in list %}
+            <tr>
+                <td>{{ member.username }}</td>
+
+                <td><img src="{{ asset('uploads/avatars/' ~ member.avatar) }}" width="50" height="50"></td>
+                <td>
+                <p><a href="{{ path('app_member_edit',{'id': member.id }) }}"
+                      class="btn btn-primary" role="button">Modifier</a>
+                    <a href="{{ path('app_member_remove',{'id': member.id }) }}"
+                       class="btn btn-default" role="button">Supprimer</a></p>
+                </td>
+            </tr>
+            {% else %}
+                <tr><td colspan="4">Pas de news.</td></tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}

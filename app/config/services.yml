@@ -1,0 +1,13 @@
+services:
+    app.member_manager:
+        class: AppBundle\Manager\MemberManager
+        arguments: [ "@doctrine.orm.entity_manager", "@logger", "%version%" ]
+
+    app.member.factory:
+        class: AppBundle\Factory\MemberFactory
+
+    app.security.voter.news:
+        class: AppBundle\Security\Voter\NewsVoter
+        tags:
+            -
+                name: security.voter

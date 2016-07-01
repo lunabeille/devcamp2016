@@ -1,0 +1,39 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/book/security.html
+security:
+    encoders:
+        AppBundle\Entity\Member: bcrypt
+
+    role_hierarchy:
+        ROLE_EDITOR: [ROLE_MEMBER]
+        ROLE_ADMIN: [ROLE_EDITOR, ROLE_ALLOWED_TO_SWITCH]
+
+    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+    providers:
+        member_directory:
+            entity:
+                class: AppBundle\Entity\Member
+                property: username
+
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+
+        main:
+            anonymous: ~
+            form_login: 
+                login_path: login
+                check_path: login
+            logout:
+                target: app_index
+
+
+    access_control:
+        -
+            path: '^/news'
+            roles: 'ROLE_MEMBER'
+
