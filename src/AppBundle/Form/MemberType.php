@@ -22,9 +22,6 @@ class MemberType extends AbstractType
         $builder
             ->add('username', SFType\TextType::class)
             ->add('email', SFType\EmailType::class)
-            ->add('plainPassword', SFType\PasswordType::class, [
-                'label' => 'Password',
-                ])
             ->add('save', SFType\SubmitType::class)
         ;
     }

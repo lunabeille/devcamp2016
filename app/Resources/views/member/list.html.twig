@@ -6,15 +6,16 @@
         <h1>Utilisateurs</h1>
         <table class="table table-striped">
             <tr>
+                <th></th>
                 <th>username</th>
-                <th></th>
-                <th></th>
+                <th>email</th>
+                <th ></th>
             </tr>
             {% for member in list %}
             <tr>
-                <td>{{ member.username }}</td>
-
                 <td><img src="{{ asset('uploads/avatars/' ~ member.avatar) }}" width="50" height="50"></td>
+                <td>{{ member.username }}</td>
+                <td>{{ member.email }}</td>
                 <td>
                 <p><a href="{{ path('app_member_edit',{'id': member.id }) }}"
                       class="btn btn-primary" role="button">Modifier</a>
