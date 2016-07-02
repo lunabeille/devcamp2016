@@ -38,4 +38,6 @@ class MemberManager
 
         return $nbUpdated;
     }
+
+    // public function sendEmailTo()
 }

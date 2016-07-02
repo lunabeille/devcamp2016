@@ -101,7 +101,7 @@ class MemberController extends Controller
         ]);
     }
     /**
-     * This method is used to create or update a member.
+     * This method is used to update a member.
      * 
      * @Route("/create/{id}", name="app_member_edit")
      * @Method({"GET", "POST"})
