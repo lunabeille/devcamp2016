@@ -78,4 +78,15 @@ class NewsController extends Controller
 
         return $this->redirectToRoute('app_index');
     }
+
+
+    /**
+     * @Route("/view/{id}", name="app_news_view", requirements={ "id": "\d+" })
+     * @Method({"GET", "POST"})
+     * @ParamConverter("news", class="AppBundle:News", options={"id" : "id"})
+     */
+    public function viewAction(News $news)
+    {
+        
+    }
 }
