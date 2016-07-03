@@ -1,7 +1,7 @@
 <?php
 
 namespace AppBundle\Form;
-
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -24,20 +24,14 @@ class NewsType extends AbstractType
             ->add('tags', SFType\ChoiceType::class, [
                 'choices' => [
                     'A la Une' => 'homepage',
-                    'Politique' => 'politics',
-                    'Economie' => 'economy',
-                    'International' => 'international',
+                    'Symfony' => 'symfony',
+                    'Photos' => 'pictures',
+                    'Blabla Etc.' => 'blabla',
                 ],
                 'expanded' => true,
                 'multiple' => true,
             ])
-            ->add('created', SFType\DateTimeType::class)
-            ->add('updated', SFType\DateTimeType::class)
-            ->add('author', EntityType::class, [
-                'class' => 'AppBundle\Entity\Member',
-                'choice_label' => 'username',
-                'query_builder' => null,
-            ])
+            ->add('author', HiddenType::class)
         ;
     }
 

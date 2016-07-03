@@ -4,8 +4,7 @@
 
     {% for flash_message in app.session.flashBag.get('notice') %}
         <p>{{ flash_message }}</p>
-    {% else %}
-        <p>N'oubliez pas de cliquer sur enregistrer !</p>
+
     {% endfor %}
 
     {{ form_start(form) }}
