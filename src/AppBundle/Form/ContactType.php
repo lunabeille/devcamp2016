@@ -27,6 +27,9 @@ class ContactType extends AbstractType
                     ]
                 ])
             ->add('content', SFType\TextareaType::class)
+            ->add('save', SFType\SubmitType::class, [
+                'label' => 'Envoyer',
+                ])
         ;
     }
 
