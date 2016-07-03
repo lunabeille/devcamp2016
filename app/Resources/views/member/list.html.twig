@@ -16,7 +16,7 @@
                 <td><img src="{{ asset('uploads/avatars/' ~ member.avatar) }}" width="50" height="50"></td>
                 <td>{{ member.username }}</td>
                 <td>
-                <p><a href="{{ path('app_contact_display', {'id': member.id}) }}"
+                <p><a href="{{ path('app_contact_display', {'id': app.user.id, 'id2' : member.id}) }}"
                     class="btn btn-primary" role="button"> Envoyer un mail</a>
                 </p>
                 </td>

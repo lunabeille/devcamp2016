@@ -3,9 +3,10 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('lib/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('lib/css/bootstrap-theme.min.css') }}">
-        {% block stylesheets %}{% endblock %}
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
