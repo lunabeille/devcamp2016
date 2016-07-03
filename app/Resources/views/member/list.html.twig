@@ -21,10 +21,13 @@
                 </p>
                 </td>
                 <td>
+                {% if is_granted('ROLE_ADMIN') %}
                 <p><a href="{{ path('app_member_edit',{'id': member.id }) }}"
                       class="btn btn-primary" role="button">Modifier</a>
                     <a href="{{ path('app_member_remove',{'id': member.id }) }}"
                        class="btn btn-default" role="button">Supprimer</a></p>
+
+                {% endif %}
                 </td>
             </tr>
             {% else %}
